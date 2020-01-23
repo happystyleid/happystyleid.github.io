@@ -1,0 +1,22 @@
+<li class="card cr-popular cr-upcoming">
+    <h2>Coming Soon, Produk Baru, Pre-Order</h2>
+    <ul>
+        <amp-carousel height="500" type="carousel" controls>
+            {% for item in site.data-preorder %}
+            <li class="card">
+                <a title="{{ item.nama-produk }} {{ item.kode-produk }}">
+                    <amp-img src="{{ item.image }}" width="1" height="1" alt="{{ item.nama-produk }}" title="{{ item.nama-produk }} {{ item.kode-produk }}" layout="responsive"></amp-img>
+                </a>
+                <div class="card-panel">
+                    <a title="{{ item.nama-produk }} {{ item.kode-produk }}" class="card-title">{{ item.nama-produk }} {{ item.kode-produk }}</a>
+                    <div class="ex-date gr-mrgn-t">
+                        <span class="ex-label">Perkiraan Tanggal Launching</span>&nbsp;<b>{{ item.tanggal-peluncuran }}</b>
+                    </div>
+                    <a class='card-link text-accent2' title='Kabari Saya Saat Dilaunching' href='https://api.whatsapp.com/send?text=Hallo%20CS%20{{ site.company }}%20Kabari Saya%20Saat%20Dilaunching%20{{ item.nama-produk }} {{ item.kode-produk }}%0ANama%20%3A%0AAlamat%20%3A&phone={{ site.telephone }}'>Kabari Saya Saat Dilaunching</a>
+                </div>
+            </li>
+            {% endfor %}
+        </amp-carousel>
+    </ul>
+    <a href='https://api.whatsapp.com/send?text=Hallo%20CS%20{{ site.company }}%20Kabari Saya%20Saat%20Dilaunching%20{{ item.nama-produk }} {{ item.kode-produk }}%0ANama%20%3A%0AAlamat%20%3A&phone={{ site.telephone }}' class="cta-arrow" title="Kabari Waktu Peluncuran">Kabari Waktu Launching</a>
+</li>

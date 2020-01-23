@@ -1,0 +1,43 @@
+<amp-sidebar id="sidebar" layout="nodisplay" side="left">
+    <ul>
+        <li class="nav-close" on="tap:sidebar.close" role="button" tabindex="0">
+            <i class="icon-close"></i>
+        </li>
+        <li>
+            <a href="/" title="Home"><span class="icon-home"></span> Home</a>
+        </li>
+        <li>
+            <a href="/produk/" title="Produk"><span class="icon-price-tags"></span> Produk</a>
+        </li>
+        <li>
+            <a href="/testimoni/" title="Testimoni"><span class="icon-star-full"></span> Testimoni</a>
+        </li>
+        <li>
+            <a href="/blog/" title="Artikel"><span class="icon-newspaper"></span> Blog</a>
+        </li>
+        <li>
+            <a href="/tentang-kami/" title="Tentang Kami"><span class="icon-briefcase"></span> Tentang Kami</a>
+        </li>
+        <li>
+            <a href="/hubungi-kami/" title="Kontak Kami"><span class="icon-phone"></span> Hubungi Kami</a>
+        </li>
+        <!-- <li>
+            <a href="/happystyle.apk" title="Download Aplikasi Gratis">
+                Download Aplikasi GRATIS </a>
+        </li> -->
+        <li class="li-language clearfix">
+            <div class="float-left">
+                &nbsp; &nbsp; &nbsp;
+                <a href="tel:{{ site.telephone }}" title="Telephone {{ site.company }}">
+                    <span class="icon-phone"></span>
+                </a> &nbsp; &nbsp; &nbsp;
+                <a href="sms:{{ site.telephone }}" title="SMS {{ site.company }}">
+                    <span class="icon-bubbles"></span>
+                </a> &nbsp; &nbsp; &nbsp;
+                <a href="{{ site.whatsapp-api }}" title="whatsapp {{ site.company }}">
+                    <span class="icon-whatsapp"></span>
+                </a>
+            </div>
+        </li>
+    </ul>
+</amp-sidebar>

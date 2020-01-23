@@ -1,0 +1,22 @@
+<header class="top-image">
+	<div id="desktop">
+		<amp-carousel layout="responsive" width="980" height="320" type="slides" autoplay delay="2000" lightbox>
+        {% for item in site.data-slider-desktop %}
+        <li>
+            <amp-img src="{{ item.amp-img }}" width="{{ item.width }}" height="{{ item.height }}" alt="{{ item.alt }}" layout="responsive">
+            </amp-img>
+        </li>
+        {% endfor %}
+    </amp-carousel>
+	</div>
+	<div id="mobile">
+		<amp-carousel layout="responsive" width="320" height="480" type="slides" autoplay delay="2000" lightbox>
+        {% for item in site.data-slider-mobile %}
+        <li>
+            <amp-img src="{{ item.amp-img }}" width="{{ item.width }}" height="{{ item.height }}" alt="{{ item.alt }}" layout="responsive">
+            </amp-img>
+        </li>
+        {% endfor %}
+    </amp-carousel>
+	</div>
+</header>

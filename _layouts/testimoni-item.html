@@ -1,0 +1,101 @@
+<!doctype html>
+<html amp lang="{{ site.lang }}">
+
+<head>
+    <title>{{ page.title }} | {{ site.company }}</title>
+    {% include metadata.html %}
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script custom-element="amp-sidebar" async src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js" async="async" custom-element="amp-carousel"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-selector-0.1.js" async="async" custom-element="amp-selector"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js" async="async" custom-element="amp-accordion"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js" async="async" custom-element="amp-lightbox"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-bind-0.1.js" async="async" custom-element="amp-bind"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-list-0.1.js" async="async" custom-element="amp-list"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js" async="async" custom-template="amp-mustache"></script>
+    <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
+    <script async custom-element="amp-facebook-like" src="https://cdn.ampproject.org/v0/amp-facebook-like-0.1.js"></script>
+    <style amp-custom>﻿
+        {% include amp-style-home.html %}
+    </style>
+    {% include amp-boilerplate.html %}
+</head>
+
+<body>
+    {% include header.html %}
+    <main class="listing-page">
+        <section class="card user-reviews padding-small-b">
+            <h1>{{ page.judul-komentar }}</h1>
+            <!-- breadcrumb Start -->
+            <ul class="breadcrumb">
+                <li><a href="/" title="Home">Home</a></li>
+                <li><a href="/testimoni/" title="Testimoni">Testimoni</a></li><br>
+                <li class="active" title="{{ page.title }}">{{ page.title }}</li>
+            </ul>
+            <!-- breadcrumb End -->
+            <br>
+            <ul class="listing basic-listing-card">
+                <div class="row">
+                    <div class="column-product-item">
+                        <div class="card">
+                            <div>
+                                <amp-carousel lightbox width="3" height="2" layout="responsive" type="slides" autoplay delay="2000">
+                                    <figure>
+                                        <amp-img src="{{ page.image }}" width="1" height="1" alt="{{ page.judul-komentar }}" title="{{ page.judul-komentar }}" layout="responsive"></amp-img>
+                                        <figcaption>{{ page.judul-komentar }}<br>
+                                            {{ page.komentar }}
+                                        </figcaption>
+                                    </figure>
+                                </amp-carousel>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-post">
+                        <div class="card">
+                            <span class="rating-small">{{ page.rating }}<i class="icon-star-filled"></i></span>
+                            <span class="hint gr-mrgn-b">{{ page.tanggal-beli }}</span>
+                            <p class="info line-clamp line-clamp-3">{{ page.komentar }}</p>
+                            <p class="text-heading gr-mrgn-t"> {{ page.nama-client }}</p>
+                            <p class="text-heading gr-mrgn-t"> {{ page.nama-unit }}</p>
+                        </div>
+                    </div>
+                    <div class="column-post">
+                        <div class="card">
+                            <p>
+                                {{ page }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="column-post">
+                        <div class="card">
+                            <p>
+                                <i>Share on : </i>&nbsp;&nbsp;&nbsp;
+                                <a href="https://www.facebook.com/dialog/share?app_id={{ site.fb_app_id }}&display=popup&href={{ site.url }}{{ page.url }}"><i class="icon-facebook"></i></a>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href="https://twitter.com/intent/tweet?text={{ page.title }}%20{{ site.url }}{{ page.url }}"> <i class="icon-twitter"></i></a>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href="https://api.whatsapp.com/send?phone=&text={{ page.title }}%20{{ page.description }}%20{{ site.url }}{{ page.url }}"><i class="icon-whatsapp"></i></a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card">
+                            <amp-facebook-like width="110" height="20" layout="fixed" data-layout="button_count" data-href="{{ site.siteurl }}{{ page.url }}">
+                            </amp-facebook-like>
+                        </div>
+                    </div>
+                    
+                </div>
+            </ul>
+        </section>
+        {% include produk-lain.html %}
+        {% include client-review.html %}
+    </main>
+    {% include nav.html %}
+    {% include footer.html %}
+    {% include serviceworker.html %}
+    {% include float-button.html %}
+</body>
+
+</html>

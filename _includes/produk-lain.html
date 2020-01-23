@@ -1,0 +1,20 @@
+<li class="card cr-popular ">
+    <h2>Produk Cantik Lainnya</h2>
+    <ul>
+        <amp-carousel height="400" type="carousel" controls autoplay delay="2000">
+            {% for item in site.data-product %}
+            <li class="card">
+                <a href="{{ item.url }}">
+                    <amp-img src="{{ item.image }}" width="1" height="1" alt="{{ item.nama-produk }} {{ item.kode-produk }}" title="{{ item.nama-produk }} {{ item.kode-produk }}" layout="responsive"></amp-img>
+                </a>
+                <div class="card-panel">
+                    <ul class="basic-listing-card user-reviews">
+                        <a class="heading" href="{{ item.url }}">{{ item.nama-produk }} {{ item.kode-produk }}</a>
+                    </ul>
+                </div>
+            </li>
+            {% endfor %}
+        </amp-carousel>
+    </ul>
+    <a class="cta-arrow" href="/produk/" title="Lihat Semua Produk">Lihat Semua Produk</a>
+</li>

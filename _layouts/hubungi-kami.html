@@ -1,0 +1,139 @@
+<!doctype html>
+<html amp lang="{{ site.lang }}">
+
+<head>
+    <title>{{ page.title }} | {{ site.company }}</title>
+    {% include metadata.html %}
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script custom-element="amp-sidebar" async src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js" async="async" custom-element="amp-carousel"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-selector-0.1.js" async="async" custom-element="amp-selector"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js" async="async" custom-element="amp-accordion"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js" async="async" custom-element="amp-lightbox"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-bind-0.1.js" async="async" custom-element="amp-bind"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-list-0.1.js" async="async" custom-element="amp-list"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js" async="async" custom-template="amp-mustache"></script>
+    <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
+    <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+    <script async custom-element="amp-facebook-comments" src="https://cdn.ampproject.org/v0/amp-facebook-comments-0.1.js"></script>
+    <script async custom-element="amp-facebook-like" src="https://cdn.ampproject.org/v0/amp-facebook-like-0.1.js"></script>
+    <style amp-custom>﻿
+        {% include amp-style-home.html %}
+    </style>
+    {% include amp-boilerplate.html %}
+</head>
+
+<body>
+    {% include header.html %}
+    <main class="home-page">
+        {% include slider.html %}
+        <section class="card user-reviews padding-small-b">
+            <h1 class="heading">{{ page.title }}</h1>
+            <!-- breadcrumb Start -->
+            <ul class="breadcrumb">
+                <li><a href="/" title="Home">Home</a></li>
+                <li class="active"><a href="{{ page.url }}" title="Hubungi Kami">{{ page.title }}</a></li>
+            </ul>
+            <!-- breadcrumb End -->
+            <br>
+            <ul class="listing basic-listing-card">
+                <div class="row">
+                    <div class="column-product-item">
+                        <div class="card">
+                            <div>
+                                <amp-carousel lightbox width="1" height="1" layout="responsive" type="slides" autoplay delay="2000">
+                                    <figure>
+                                        <amp-img src="{{ page.image }}" width="1" height="1" alt="{{ page.title }}" title="{{ page.title }}" layout="responsive"></amp-img>
+                                        <figcaption>{{ page.title }}</figcaption>
+                                    </figure>
+                                </amp-carousel>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-post">
+                        <div class="card">
+                            <address>
+                                <span class="title"><i class="icon-location-fill"></i> <strong>Alamat Dealer :</strong></span><br>
+                                {{ site.streetAddress }}, {{ site.addressLocality }}, {{ site.addressRegion }}, {{ site.postalCode }}, {{ site.addressCountry }}
+                                <div class="gr-pad-t">
+                                    <a href="mailto:{{ site.email }}" title="{{ site.email }}"><span class="icon-envelop"></span><strong> Email :</strong><br>
+                                        {{ site.email }}</a>
+                                </div>
+                                <div class="gr-pad-t">
+                                    <a href="tel:{{ site.telephone }}" title="{{ site.email }}"><span class="icon-phone"></span>
+                                        <strong> Telepon :</strong><br>
+                                        {{ site.telephone-detail }}</a>
+                                </div>
+                                <div class="gr-pad-t">
+                                    <a href="sms:{{ site.telephone }}" title="{{ site.email }}"><span class="icon-bubbles"></span><strong> SMS :</strong><br>
+                                        {{ site.telephone-detail }}</a>
+                                </div>
+                                <div class="gr-pad-t">
+                                    <a href="{{ site.whatsapp-api }}" title="{{ site.email }}"><span class="icon-whatsapp"></span><strong> Whatsapp :</strong><br>
+                                        {{ site.telephone-detail }}</a>
+                                </div>
+                                <br>
+                                <div class="gr-pad-t">
+                                    <div class="float-left">
+                                        &nbsp; &nbsp; &nbsp;
+                                        <a href="{{ site.youtube }}" title="Youtube {{ site.company }}">
+                                            <span class="icon-youtube"></span>
+                                        </a> &nbsp; &nbsp; &nbsp;
+                                        <a href="{{ site.facebook }}" title="Facebook {{ site.company }}">
+                                            <span class="icon-facebook"></span>
+                                        </a> &nbsp; &nbsp; &nbsp;
+                                        <a href="{{ site.instagram }}" title="Instagram {{ site.company }}">
+                                            <span class="icon-instagram"></span>
+                                        </a> &nbsp; &nbsp; &nbsp;
+                                        <a href="{{ site.twitter }}" title="Twitter {{ site.company }}">
+                                            <span class="icon-twitter"></span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <br>
+                            </address>
+                        </div>
+                    </div>
+                    <div class="column-post">
+                        <div class="card">
+                            <amp-iframe width="600" height="400" title="happystyle.id" layout="responsive" sandbox="allow-scripts allow-same-origin allow-popups" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=place_id:EmdKbC4gTVQuIEhhcnlvbm8gTm8uMTM0LCBLZXBhdGloYW4sIEtlYy4gVHVsdW5nYWd1bmcsIEthYnVwYXRlbiBUdWx1bmdhZ3VuZywgSmF3YSBUaW11ciA2NjIxOSwgSW5kb25lc2lhIjESLwoUChIJzXE9qSLjeC4RYiqbXPNoMvgQhgEqFAoSCcFXnRUa43guEZA7fddVW69X&key=AIzaSyCNCZ0Twm_HFRaZ5i-FuPDYs3rLwm4_848">
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card">
+                            <p>
+                                <i>Share on : </i>&nbsp;&nbsp;&nbsp;
+                                <a href="https://www.facebook.com/dialog/share?app_id={{ site.fb_app_id }}&display=popup&href={{ site.url }}{{ page.url }}"><i class="icon-facebook"></i></a>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href="https://twitter.com/intent/tweet?text={{ page.title }}%20{{ site.url }}{{ page.url }}"> <i class="icon-twitter"></i></a>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href="https://api.whatsapp.com/send?phone=&text={{ page.title }}%20{{ page.description }}%20{{ site.url }}{{ page.url }}"><i class="icon-whatsapp"></i></a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card">
+                            <amp-facebook-like width="110" height="20" layout="fixed" data-layout="button_count" data-href="{{ site.siteurl }}{{ page.url }}">
+                            </amp-facebook-like>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card">
+                            <amp-facebook-comments width="552" height="310" layout="responsive" data-numposts="5" data-href="{{ site.siteurl }}{{ page.url }}">
+                            </amp-facebook-comments>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+        </section>
+        {% include produk-lain.html %}
+        {% include client-review.html %}
+    </main>
+    {% include nav.html %}
+    {% include footer.html %}
+    {% include serviceworker.html %}
+    {% include float-button.html %}
+</body>
+
+</html>

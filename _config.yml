@@ -1,0 +1,46 @@
+creator: dennyrwa
+lang: id
+locale: id_ID
+themecolor: ffffff
+company: happystyle.id
+siteurl: https://happystyle.id
+icon: /favicon.ico
+logo: /images/logo-happystyle.webp
+alt-logo: Logo of happystyle.id
+twitter: dennyrwa
+facebook: https://www.facebook.com/happystyle.id
+instagram: https://www.instagram.com/happystyleid/
+youtube:
+copyright: © Copyright <strong>happystyle.id</strong>. <br>All Rights Reserved and All the trademarks are the property of their respective owners
+whatsapp-float-desktop: https://web.whatsapp.com/send?phone=6281359822222&text=Hallo, CS happystyle.id
+whatsapp-float-phone: whatsapp://send?text=Hallo, CS happystyle.id!&phone=+6281359822222
+exclude: [README.md]
+email: cs@happystyle.id
+streetAddress: Jl. MT Haryono 134 Kepatihan Tulungagung
+postOfficeBoxNumber: 
+addressLocality: Tulungagung
+addressRegion: Jawa Timur
+postalCode: 66219
+addressCountry: Indonesia
+telephone: 6281359822222
+telephone-detail: 081-3598-22222
+whatsapp-api: https://api.whatsapp.com/send?text=Hallo%20CS%20happystyle.id%20(Nama)%20(Alamat)%20&phone=6281359822222
+fb_app_id: 604720380095915
+DMCA: 8aba8651-f13b-423b-8325-fcc33320333b
+google-my-bussiness:
+permalink: pretty
+plugins:
+  - jekyll-feed
+collections:
+  data-slider-desktop:
+    output: true
+  data-slider-mobile:
+    output: true
+  data-preorder:
+    output: true
+  data-product:
+    output: true
+    permalink: /produk/:name/
+  data-client:
+    output: true
+    permalink: /testimoni/:name/

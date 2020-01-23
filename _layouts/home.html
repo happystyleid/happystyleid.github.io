@@ -1,0 +1,210 @@
+<!doctype html>
+<html amp lang="{{ page.language }}">
+
+<head>
+    <title>{{ page.title }} | {{ site.company }}</title>
+    {% include metadata.html %}
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script custom-element="amp-sidebar" async src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <!-- <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script> -->
+    <!-- <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script> -->
+    <!-- <script async custom-element="amp-web-push" src="https://cdn.ampproject.org/v0/amp-web-push-0.1.js"></script> -->
+    <!-- <script async custom-element="amp-user-notification" src="https://cdn.ampproject.org/v0/amp-user-notification-0.1.js"></script> -->
+    <script async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js" async="async" custom-element="amp-carousel"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-selector-0.1.js" async="async" custom-element="amp-selector"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js" async="async" custom-element="amp-accordion"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js" async="async" custom-element="amp-lightbox"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-bind-0.1.js" async="async" custom-element="amp-bind"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-list-0.1.js" async="async" custom-element="amp-list"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js" async="async" custom-template="amp-mustache"></script>
+    <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
+    <style amp-custom>﻿
+        {% include amp-style-home.html %}
+    </style>
+    {% include amp-boilerplate.html %}
+</head>
+
+<body>
+    {% include header.html %}
+    {% include structure-data-home.html %}
+    <main class="home-page">
+        {% include slider.html %}
+        <div class="card card-panel">
+            <li class="card">
+                <div id="mobile">
+                    <a href="/produk/" title="{{ site.company }}">
+                        <amp-img src="{{ page.image }}" width="1" height="1" alt="{{ site.company }}" title="{{ site.company }}" layout="responsive"></amp-img>
+                    </a>
+                </div>
+                <div class="card-panel">
+                    <h1 class="card-title">{{ page.title }} - {{ site.company }}</h1>
+                    <p class="info">{{ page.info }}</p>
+                </div>
+            </li>
+        </div>
+    </main>
+    <main class="listing-page">
+        <amp-state id="brandContent">
+            <script type="application/json">
+            {
+                "currentState": "Baca Selengkapnya",
+                "Hide": {
+                    "style": "expanded"
+                },
+                "Baca Selengkapnya": {
+                    "style": "collapsed"
+                }
+            }
+            </script>
+        </amp-state>
+        <ul class="listing basic-listing-card">
+            <div class="row">
+                {% for item in site.data-product limit:12 %}
+                <div class="column">
+                    <div class="card">
+                        <div>
+                            <amp-carousel lightbox width="1" height="1" layout="responsive" type="slides" autoplay delay="2000">
+                                <figure>
+                                    <amp-img src="{{ item.image }}" width="1" height="1" alt="{{ item.nama-produk }} {{ item.kode-produk }}" title="{{ item.nama-produk }} {{ item.kode-produk }}" layout="responsive"></amp-img>
+                                    <figcaption>{{ item.nama-produk }} {{ item.kode-produk }}</figcaption>
+                                </figure>
+                            </amp-carousel>
+                        </div>
+                        <div class="card-panel">
+                            <a class="card-link" href="{{ item.url }}" title="{{ item.nama-produk }} {{ item.kode-produk }}">{{ item.nama-produk }} {{ item.kode-produk }}</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <li class="card cr-popular ">
+                <a class="cta-arrow" href="/produk/" title="Produk cantik lainnya">Produk cantik lainnya</a>
+            </li>
+            <div class="card cr-popular ">
+                <div class="card-panel">
+                    {{ content }}
+                </div>
+            </div>
+            <section class="card home-nav">
+                <h2>Bagaimana cara bertransaksi di grosir busana muslim anak terlengkap happystyle.id</h2>
+                <ul class="grid-3 clearfix car">
+                    <li class="car">
+                        <a href="/produk/" role="button" tabindex="0" id="new-mobil" on="tap:new-mobil-modal" title="Pilih Model" class="card-icon"><i class="icon-price-tags"></i><span class="truncate block">Pilih Model</span></a>
+                    </li>
+                    <li>
+                        <a href="tel:{{ site.telephone }}" role="button" tabindex="0" id="used-car" title="Telepon Kami" class="card-icon"><i class="icon-phone"></i>Telepon Kami </a>
+                    </li>
+                    <li>
+                        <a href="https://api.whatsapp.com/send?text=Hallo%20CS%20happystyle.id%20Tanya%20Produk%0ANama%20%3A%0AAlamat%20%3A&phone={{ site.telephone }}" role="button" tabindex="0" id="offer" title="WA Kami" class="card-icon"><i class="icon-whatsapp"></i>WA Kami</a>
+                    </li>
+                    <li>
+                        <a role="button" tabindex="0" id="finance" title="Transaksi" class="card-icon open-model">
+                            <i class="icon-finance"></i>
+                            Transaksi </a>
+                    </li>
+                    <li class="truk">
+                        <a role="button" tabindex="0" id="new-truk" title="Kirim Barang" class="card-icon">
+                            <i class="icon-new"></i>
+                            <span class="truncate block">Kirim Barang</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/dialog/share?app_id={{ site.fb_app_id }}&display=popup&href={{ site.url }}{{ page.url }}" role="button" tabindex="0" id="news" class="card-icon" title="Update">
+                            <i class="icon-facebook"></i>
+                            Update</a>
+                    </li>
+                </ul>
+            </section>
+            <!--Pre-Order-->
+            <!--Berita Terbaru-->
+            <li class="card cr-popular ">
+                <h2>Berita Terbaru</h2>
+                <ul>
+                    <amp-carousel height="360" type="carousel" controls>
+                        {% for post in site.posts %}
+                        <li class="card">
+                            <a href="{{ post.url }}">
+                                <amp-img src="{{ post.image }}" width="3" height="2" alt="{{ post.judul-komentar }}" title="{{ post.judul-komentar }}" layout="responsive"></amp-img>
+                            </a>
+                            <div class="card-panel">
+                                <ul class="basic-listing-card user-reviews">
+                                    <a class="heading" href="{{ post.url }}">{{ post.judul-post }}</a>
+                                    <span class="rating-small">{{ post.kolom }}</span>
+                                    <span class="gr-mrgn-l">{{ post.tanggal-terbit }}</span>
+                                    <p class="text-heading gr-mrgn-t"></p>
+                                    <span class="hint gr-mrgn-b"></span>
+                                </ul>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </amp-carousel>
+                </ul>
+                <a class="cta-arrow" href="/blog/" title="Lihat Semua Berita Terbaru">Lihat Semua Berita Terbaru</a>
+            </li>
+            <!--Popular Car Section HTML end-->
+            <amp-state id="brandsIcon">
+                <script type="application/json">
+                {
+                    "currentState": "more",
+                    "less": {
+                        "style": "expanded"
+                    },
+                    "more": {
+                        "style": "collapsed"
+                    }
+                }
+                </script>
+            </amp-state>
+        </ul>
+        <header class="card card-panel">
+            <h2>Rating Grosir Busana Muslim Anak</h2>
+            <span class="rating gr-pad-t">
+                <i class="ic-star-filled"></i><i class="ic-star-filled"></i><i class="ic-star-filled"></i><i class="ic-star-filled"></i><i class="ic-star-half"></i> <span class="hint">
+                    Rating dari reseller berdasarkan 217 ulasan </span>
+            </span>
+            <div class="read-more brand-content">
+                <div class="collapsed" [class]="brandContent[brandContent.currentState].style">
+                    <p class="info gr-mrgn-t">
+                        Terimakasih telah memberikan rating tinggi terhadap pelayanan kami dan sekarang sudah saatnya giliran Anda untuk yang belum memperoleh layanan prima dari kami. Hubungi kami untuk memastikan kesediaan pilihan Anda. <a class="theme-link text-accent" href="{{ site.whatsapp-api }}" title="Whatsapp {{ site.company }}">Klik di sini untuk menghubungi via Whatsapp</a>, atau lihat pilihan narahubung lainnya di laman <a class="theme-link text-accent" href="/hubungi-kami/" title="Hubungi Kami">Hubungi Kami</a>.</p>
+                    <div class="gr-listview margin-small-t">
+                        <amp-accordion>
+                            <section>
+                                <h2>List Produk</h2>
+                                <table class="price-table table-border">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <strong>Produk</strong>
+                                            </th>
+                                            <th>
+                                                <strong>Kode Produk</strong>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="gsc_thin_scroll">
+                                        {% for item in site.data-product %}
+                                        <tr>
+                                            <td><a href="{{ item.url }}">{{ item.nama-produk }}</a></td>
+                                            <td><strong>{{ item.kode-produk }}</strong></td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </section>
+                        </amp-accordion>
+                    </div>
+                </div>
+            </div>
+            <button on="tap:AMP.setState({brandContent : {currentState: (brandContent.currentState == 'Tutup' ? 'Baca Selengkapnya' : 'Tutup')}})" [text]=" brandContent.currentState">Baca Selengkapnya</button>
+            <span class="hint">Segera dapatkan produk-produk terbaik</span>
+        </header>
+        {% include client-review.html %}
+    </main>
+    {% include nav.html %}
+    {% include footer.html %}
+    {% include serviceworker.html %}
+    {% include float-button.html %}
+</body>
+
+</html>

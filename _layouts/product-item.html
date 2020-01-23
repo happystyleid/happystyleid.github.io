@@ -1,0 +1,195 @@
+<!doctype html>
+<html amp lang="{{ site.lang }}">
+
+<head>
+    <title>{{ page.title }} | {{ site.company }}</title>
+    {% include metadata.html %}
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script custom-element="amp-sidebar" async src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js" async="async" custom-element="amp-carousel"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-selector-0.1.js" async="async" custom-element="amp-selector"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js" async="async" custom-element="amp-accordion"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js" async="async" custom-element="amp-lightbox"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-bind-0.1.js" async="async" custom-element="amp-bind"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-list-0.1.js" async="async" custom-element="amp-list"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js" async="async" custom-template="amp-mustache"></script>
+    <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
+    <script async custom-element="amp-facebook-comments" src="https://cdn.ampproject.org/v0/amp-facebook-comments-0.1.js"></script>
+    <script async custom-element="amp-facebook-like" src="https://cdn.ampproject.org/v0/amp-facebook-like-0.1.js"></script>
+    <style amp-custom>﻿
+        {% include amp-style-home.html %}
+    </style>
+    {% include amp-boilerplate.html %}
+</head>
+
+<body>
+    {% include header.html %}
+    <main class="listing-page">
+        <amp-state id="brandContent">
+            <script type="application/json">
+            {
+                "currentState": "Baca Selengkapnya",
+                "Hide": {
+                    "style": "expanded"
+                },
+                "Baca Selengkapnya": {
+                    "style": "collapsed"
+                }
+            }
+            </script>
+        </amp-state>
+        <section class="card user-reviews padding-small-b">
+            <h2>{{ page.nama-produk }} {{ page.kode-produk }}</h2>
+            <!-- breadcrumb Start -->
+            <ul class="breadcrumb">
+                <li><a href="/" title="Home">Home</a></li>
+                <li><a href="/produk/" title="Produk">Produk</a></li>
+                <li class="active"><a href="{{ page.url }}" title="{{ page.nama-produk }} {{ page.kode-produk }}">{{ page.nama-produk }} {{ page.kode-produk }}</a></li>
+            </ul>
+            <!-- breadcrumb End -->
+            <div class="read-more brand-content">
+                <div class="collapsed" [class]="brandContent[brandContent.currentState].style">
+                    <p class="info gr-mrgn-t">{{ page.artikel }}</p>
+                </div>
+            </div>
+            <button on="tap:AMP.setState({brandContent : {currentState: (brandContent.currentState == 'Tutup' ? 'Baca Selengkapnya' : 'Tutup')}})" [text]=" brandContent.currentState">Baca Selengkapnya</button>
+            <ul class="listing basic-listing-card">
+                <div class="row">
+                    <div class="column-product-item">
+                        <div class="card">
+                            <div>
+                                <amp-carousel lightbox width="1" height="1" layout="responsive" type="slides" autoplay delay="2000">
+                                    <figure>
+                                        <amp-img src="{{ page.image }}" width="1" height="1" alt="{{ page.nama-produk }} {{ page.kode-produk }}" title="{{ page.nama-produk }} {{ page.kode-produk }}" layout="responsive"></amp-img>
+                                        <figcaption>{{ page.figcaption }} {{ page.nama-produk }} {{ page.kode-produk }}</figcaption>
+                                    </figure>
+                                </amp-carousel>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-post">
+                        <div class="card">
+                            <section>
+                                <div class="variants-compare-list">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <a>Kode Produk : {{ page.kode-produk }}</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                            </section>
+                            <div class="card-link">
+                                <a class="beli-sekarang" href="https://api.whatsapp.com/send?text=hi%20terimakasih%20sudah%20menghubungi%20{{ site.company }}%0A%0A%0Aharap%20diisi%20dengan%20lengkap%0AFORMAT ORDER%0A======================%0ANama%20:%0AAlamat%20(selengkap mungkin):%0ANo.%20HP%20:%0Aorder%20(kode)%20:%20{{ page.kode-produk }}%0Ajumlah%20:%0A======================%0A*masalah%20pengiriman%20karena%20alamat%20yang%20tidak%20lengkap%20bukan%20tanggungjawab%20kami%0A%0Asource%20:%20{{ site.siteurl }}{{ page.url }}%20&phone={{ site.telephone }}"><i class="icon-whatsapp"></i> Pesan Sekarang</a>
+                            </div>
+                            <section>
+                                <div class="variants-compare-list">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <a>Keterangan Produk :</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a>{{ page.cara-pembelian }}</a>
+                                                </td>
+                                                <td>
+                                                    <ul class="card-panel-list">
+                                                        <li>{{ page.ket-cara-pembelian }}</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a>{{ page.ukuran-busana }}</a>
+                                                </td>
+                                                <td>
+                                                    <ul class="card-panel-list">
+                                                        <li>{{ page.ket-ukuran-busana }}</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a>{{ page.min-packing }}</a>
+                                                </td>
+                                                <td>
+                                                    <ul class="card-panel-list">
+                                                        <li>{{ page.ket-min-packing-1 }}</li>
+                                                    </ul>
+                                                    <ul class="card-panel-list">
+                                                        <li>{{ page.ket-min-packing-2 }}</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a>{{ page.warna-busana }}</a>
+                                                </td>
+                                                <td>
+                                                    <ul class="card-panel-list">
+                                                        <li>{{ page.ket-warna-busana }}</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <a>{{ page.bahan-busana }}</a>
+                                                </td>
+                                                <td>
+                                                    <ul class="card-panel-list">
+                                                        <li>{{ page.ket-bahan-busana }}</li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card">
+                            <p>
+                                <i>Share on : </i>&nbsp;&nbsp;&nbsp;
+                                <a href="https://www.facebook.com/dialog/share?app_id={{ site.fb_app_id }}&display=popup&href={{ site.url }}{{ page.url }}"><i class="icon-facebook"></i></a>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href="https://twitter.com/intent/tweet?text={{ page.title }}%20{{ site.url }}{{ page.url }}"> <i class="icon-twitter"></i></a>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href="https://api.whatsapp.com/send?phone=&text={{ page.title }}%20{{ page.description }}%20{{ site.url }}{{ page.url }}"><i class="icon-whatsapp"></i></a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card">
+                            <amp-facebook-like width="110" height="20" layout="fixed" data-layout="button_count" data-href="{{ site.siteurl }}{{ page.url }}">
+                            </amp-facebook-like>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card">
+                            <amp-facebook-comments width="552" height="310" layout="responsive" data-numposts="5" data-href="{{ site.siteurl }}{{ page.url }}">
+                            </amp-facebook-comments>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+            <div class="read-more brand-content">
+                <p class="info gr-mrgn-t">{{ page }}</p>
+            </div>
+        </section>
+        {% include produk-lain.html %}
+        {% include client-review.html %}
+    </main>
+    {% include nav.html %}
+    {% include footer.html %}
+    {% include serviceworker.html %}
+    {% include float-button.html %}
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html amp lang="{{ site.lang }}">
+
+<head>
+    <title>{{ page.title }} | {{ site.company }}</title>
+    {% include metadata.html %}
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script custom-element="amp-sidebar" async src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js" async="async" custom-element="amp-carousel"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-selector-0.1.js" async="async" custom-element="amp-selector"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js" async="async" custom-element="amp-accordion"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js" async="async" custom-element="amp-lightbox"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-bind-0.1.js" async="async" custom-element="amp-bind"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-list-0.1.js" async="async" custom-element="amp-list"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js" async="async" custom-template="amp-mustache"></script>
+    <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
+    <style amp-custom>﻿
+        {% include amp-style-home.html %}
+    </style>
+    {% include amp-boilerplate.html %}
+</head>
+
+<body>
+    {% include header.html %}
+    <main class="home-page">
+        {% include slider.html %}
+        <header class="card card-panel">
+            <h1>Testimoni</h1>
+            <!-- breadcrumb Start -->
+            <ul class="breadcrumb">
+                <li><a href="/" title="Home">Home</a></li>
+                <li class="active"><a href="/testimoni/" title="Testimoni">Testimoni</a></li>
+            </ul>
+            <!-- breadcrumb End -->
+            <span class="rating gr-pad-t">
+                <i class="ic-star-filled"></i><i class="ic-star-filled"></i><i class="ic-star-filled"></i><i class="ic-star-filled"></i><i class="ic-star-half"></i> <span class="hint">
+                    Rating dari konsumen berdasarkan 122 ulasan </span>
+            </span>
+            <div class="read-more brand-content">
+                <div class="collapsed" [class]="brandContent[brandContent.currentState].style">
+                    <p class="info gr-mrgn-t">{{ page.description-panjang }}</p>
+                </div>
+            </div>
+            <button on="tap:AMP.setState({brandContent : {currentState: (brandContent.currentState == 'Tutup' ? 'Baca Selengkapnya' : 'Tutup')}})" [text]=" brandContent.currentState">Baca Selengkapnya</button>
+            <span class="hint">Segera dapatkan produk-produk terbaik</span>
+        </header>
+    </main>
+    <main class="listing-page">
+        <amp-state id="brandContent">
+            <script type="application/json">
+            {
+                "currentState": "Baca Selengkapnya",
+                "Hide": {
+                    "style": "expanded"
+                },
+                "Baca Selengkapnya": {
+                    "style": "collapsed"
+                }
+            }
+            </script>
+        </amp-state>
+        <ul class="listing basic-listing-card">
+            <div class="row">
+                {% for item in site.data-client %}
+                <div class="column-testimoni">
+                    <div class="card">
+                        <a href="{{ item.url }}">
+                            <amp-img src="{{ item.image }}" width="3" height="2" alt="{{ item.judul-komentar }}" title="{{ item.judul-komentar }}" layout="responsive"></amp-img>
+                        </a>
+                        <div class="card-panel">
+                            <ul class="basic-listing-card user-reviews">
+                                <a class="heading" href="{{ item.url }}">{{ item.judul-komentar }}</a>
+                                <span class="rating-small">{{ item.rating }}<i class="icon-star-filled"></i></span>
+                                <span class="gr-mrgn-l">{{ item.nama-unit }}</span>
+                                <p class="info line-clamp line-clamp-3">{{ item.komentar }}</p>
+                                <a href="{{ item.url }}" title="{{ item.judul-komentar }}" class="font16 text-accent">
+                                    Baca Selengkapnya </a>
+                                <p class="text-heading gr-mrgn-t">{{ item.nama-client }}</p>
+                                <span class="hint gr-mrgn-b">{{ item.tanggal-beli }}</span>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </ul>
+        {% include produk-lain.html %}
+    </main>
+    {% include nav.html %}
+    {% include footer.html %}
+    {% include serviceworker.html %}
+    {% include float-button.html %}
+</body>
+
+</html>

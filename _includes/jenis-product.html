@@ -1,0 +1,62 @@
+<ul class="listing basic-listing-card">
+    <div class="row">
+        {% for item in site.data-product %}
+        <div class="column">
+            <div class="card">
+                <div>
+                    <amp-carousel lightbox width="1" height="1" layout="responsive" type="slides" autoplay delay="2000">
+                        <figure>
+                            <amp-img src="{{ item.image }}" width="1" height="1" alt="{{ item.nama-produk }} {{ item.kode-produk }}" title="{{ item.nama-produk }} {{ item.kode-produk }}" layout="responsive"></amp-img>
+                            <figcaption>{{ item.nama-produk }} {{ item.kode-produk }}</figcaption>
+                        </figure>
+                    </amp-carousel>
+                </div>
+                <div class="card-panel">
+                    <a class="card-link" href="{{ item.url }}" title="{{ item.nama-produk }} {{ item.kode-produk }}">{{ item.nama-produk }} {{ item.kode-produk }}</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!--Pre-Order-->
+    
+    <!--Berita Terbaru-->
+    <li class="card cr-popular ">
+        <h2>Berita Terbaru</h2>
+        <ul>
+            <amp-carousel height="360" type="carousel" controls>
+                {% for post in site.posts %}
+                <li class="card">
+                    <a href="{{ post.url }}">
+                        <amp-img src="{{ post.image }}" width="3" height="2" alt="{{ post.judul-komentar }}" title="{{ post.judul-komentar }}" layout="responsive"></amp-img>
+                    </a>
+                    <div class="card-panel">
+                        <ul class="basic-listing-card user-reviews">
+                            <a class="heading" href="{{ post.url }}">{{ post.judul-post }}</a>
+                            <span class="rating-small">{{ post.kolom }}</span>
+                            <span class="gr-mrgn-l">{{ post.tanggal-terbit }}</span>
+                            <p class="text-heading gr-mrgn-t"></p>
+                            <span class="hint gr-mrgn-b"></span>
+                        </ul>
+                    </div>
+                </li>
+                {% endfor %}
+            </amp-carousel>
+        </ul>
+        <a class="cta-arrow" href="/blog/" title="Lihat Semua Berita Terbaru">Lihat Semua Berita Terbaru</a>
+    </li>
+    <!--Popular Car Section HTML end-->
+    <amp-state id="brandsIcon">
+        <script type="application/json">
+        {
+            "currentState": "more",
+            "less": {
+                "style": "expanded"
+            },
+            "more": {
+                "style": "collapsed"
+            }
+        }
+        </script>
+    </amp-state>
+</ul>

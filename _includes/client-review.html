@@ -1,0 +1,19 @@
+<section class="card user-reviews padding-small-b">
+    <h2>Kata Mereka, {{ site.company }}</h2>
+    <ul class="basic-listing-card user-reviews">
+        <amp-carousel type="carousel" height="266" controls>
+            {% for item in site.data-client %}
+            <li class="card card-panel">
+                <a class="heading" href="{{ item.url }}">{{ item.judul-komentar }}</a>
+                <span class="rating-small">{{ item.rating }}<i class="icon-star-filled"></i></span>
+                <span class="gr-mrgn-l">{{ item.nama-unit }}</span>
+                <p class="info line-clamp line-clamp-3">{{ item.komentar }}</p>
+                <a href="{{ item.url }}" title="{{ item.judul-komentar }}" class="font16 text-accent">
+                    Baca Selengkapnya </a>
+                <p class="text-heading gr-mrgn-t">{{ item.nama-client }}</p>
+                <span class="hint gr-mrgn-b">{{ item.tanggal-beli }}</span>
+            </li>
+            {% endfor %}
+        </amp-carousel>
+    </ul>
+</section>

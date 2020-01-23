@@ -1,0 +1,97 @@
+<!doctype html>
+<html amp lang="{{ site.lang }}">
+
+<head>
+    <title>{{ page.title }} | {{ site.company }}</title>
+    {% include metadata.html %}
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script custom-element="amp-sidebar" async src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-lightbox-gallery" src="https://cdn.ampproject.org/v0/amp-lightbox-gallery-0.1.js"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js" async="async" custom-element="amp-carousel"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-selector-0.1.js" async="async" custom-element="amp-selector"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js" async="async" custom-element="amp-accordion"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js" async="async" custom-element="amp-lightbox"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-bind-0.1.js" async="async" custom-element="amp-bind"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-list-0.1.js" async="async" custom-element="amp-list"></script>
+    <script src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js" async="async" custom-template="amp-mustache"></script>
+    <script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>
+    <script async custom-element="amp-facebook-comments" src="https://cdn.ampproject.org/v0/amp-facebook-comments-0.1.js"></script>
+    <script async custom-element="amp-facebook-like" src="https://cdn.ampproject.org/v0/amp-facebook-like-0.1.js"></script>
+    <style amp-custom>﻿
+        {% include amp-style-home.html %}
+    </style>
+    {% include amp-boilerplate.html %}
+</head>
+
+<body>
+    {% include header.html %}
+    {% include slider.html %}
+    <main class="home-page">
+        <section class="card user-reviews padding-small-b">
+            <h1 class="heading">{{ page.title }}</h1>
+            <!-- breadcrumb Start -->
+            <ul class="breadcrumb">
+                <li><a href="/" title="Home">Home</a></li>
+                <li class="active"><a href="/tentang-kami/" title="Tentang Kami">Tentang Kami</a></li>
+            </ul>
+            <!-- breadcrumb End -->
+            <br>
+            <ul class="listing basic-listing-card">
+                <div class="row">
+                    <div class="column-product-item">
+                        <div class="card">
+                            <div>
+                                <amp-carousel lightbox width="1" height="1" layout="responsive" type="slides" autoplay delay="2000">
+                                    <figure>
+                                        <amp-img src="{{ page.image }}" width="1" height="1" alt="{{ page.title }}" title="{{ page.title }}" layout="responsive"></amp-img>
+                                        <figcaption>{{ page.title }}</figcaption>
+                                    </figure>
+                                </amp-carousel>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-post">
+                        <div class="card">
+                            <p class="text-heading gr-mrgn-t">
+                                Sekali lagi saya ucapkan selamat datang di <a href="/"><strong>happystyle.id</strong></a>.<br>Website ini adalah website pemasaran untuk menunjang sarana komunikasi Anda selaku konsumen dan calon konsumen happystyle.id dengan marketing executive happystyle.id terutama di wilayah Indonesia.<br>Kami sangat berpengalaman melayani konsumen kami yang membeli mobil baru happystyle.id secara <strong>Cash</strong> maupun secara <strong>Kredit</strong>. <strong>”Customer Satisfaction is Our Goal“</strong> adalah motto penyemangat kami dalam melayani kebutuhan Anda. Kami selalu dan pasti memberikan pelayanan yang tulus dan bertanggung jawab serta mengutamakan kepercayaan (Trust) kepada semua konsumen kami dari proses kredit, delivery service ke rumah konsumen.<br>Selain hal tersebut diatas, dengan website ini diharapkan dapat membantu memberikan Informasi yang lengkap terkait informasi produk, harga, promo, diskon, & kredit dari produk happystyle.id sesuai Kebutuhan konsumen dan calon konsumen happystyle.id, serta dapat membantu dalam hal pemasaran produk happystyle.id di Indonesia<br>Layanan Terbaik, Kualitas Terbaik, Diskon Maksimal, Banyak Bonusnya, Respon Cepat, Bertanggung Jawab, Menguasai Produk Knowledge, Proses Kredit Mudah akan menjadi prioritas layanan Kami. Segera hubungi kami untuk konsultasi lebih lanjut. Siap melayani 24 jam.<br>Terima Kasih Atas Kunjungan Anda di happystyle.id.<br><br>Salam Hormat,<br><br><br><strong>Mas Andre</strong><br>
+                                CEO happystyle.id</p>
+                            <span class="hint gr-mrgn-b"></span>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card">
+                            <p>
+                                <i>Share on : </i>&nbsp;&nbsp;&nbsp;
+                                <a href="https://www.facebook.com/dialog/share?app_id={{ site.fb_app_id }}&display=popup&href={{ site.url }}{{ page.url }}"><i class="icon-facebook"></i></a>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href="https://twitter.com/intent/tweet?text={{ page.title }}%20{{ site.url }}{{ page.url }}"> <i class="icon-twitter"></i></a>
+                                &nbsp;&nbsp;&nbsp;
+                                <a href="https://api.whatsapp.com/send?phone=&text={{ page.title }}%20{{ page.description }}%20{{ site.url }}{{ page.url }}"><i class="icon-whatsapp"></i></a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card">
+                            <amp-facebook-like width="110" height="20" layout="fixed" data-layout="button_count" data-href="{{ site.siteurl }}{{ page.url }}">
+                            </amp-facebook-like>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card">
+                            <amp-facebook-comments width="552" height="310" layout="responsive" data-numposts="5" data-href="{{ site.siteurl }}{{ page.url }}">
+                            </amp-facebook-comments>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+        </section>
+        {% include produk-lain.html %}
+        {% include client-review.html %}
+    </main>
+    {% include nav.html %}
+    {% include footer.html %}
+    {% include serviceworker.html %}
+    {% include float-button.html %}
+</body>
+
+</html>
