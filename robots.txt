@@ -11,4 +11,4 @@ User-agent: Googlebot-Image
 Allow: /
 User-agent: Googlebot-Mobile
 Allow: /
-Sitemap: https://wulingtulungagung.web.id/sitemap.xml
+Sitemap: https://happystyle.id/sitemap.xml
